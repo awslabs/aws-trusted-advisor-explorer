@@ -1,0 +1,63 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "MasterAccountNumber": {
+            "Description": "The account where the AWS Trusted Advisor Explorer solution will be deployed",
+            "Type": "Number"
+        },
+        "CrossAccountRoleName": {
+            "Description": "Your Role Name (ex: OrganizationAccountAccessRole); This will need to be the same across all of the Member Accounts",
+            "Type": "String"
+        }
+    },
+    "Resources": {
+        "CrossAccountRoleForAWSTrustedAdvisorEx": {
+            "Type": "AWS::IAM::Role",
+            "Metadata": {
+                "cfn_nag": {
+                    "rules_to_suppress": [
+                        {
+                            "id": "W28",
+                            "reason": "The role name needs to be same in all of the member accounts."
+                        }
+                    ]
+                }
+            },
+            "Properties": {
+                "RoleName": {
+                    "Ref": "CrossAccountRoleName"
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::",
+                                            {
+                                                "Ref": "MasterAccountNumber"
+                                            },
+                                            ":root"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AWSSupportAccess",
+                    "arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess"
+                ],
+                "Path": "/"
+            }
+        }
+    }
+}
