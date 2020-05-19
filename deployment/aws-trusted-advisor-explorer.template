@@ -1492,7 +1492,8 @@
                         },
                         "LOG_LEVEL": {
                             "Ref": "LogLevel"
-                        }
+                        },
+                        "SupportedChecks" : "Qch7DwouX1,hjLMh88uM8,DAvU99Dc4C,Z4AUBRNSmz,Ti39halfu8,51fC20e7I2,G31sQ1E9U,1e93e4c0b5"
                     }
                 },
                 "Timeout": 5,

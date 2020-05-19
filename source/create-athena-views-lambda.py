@@ -159,7 +159,7 @@ def lambda_handler(event, context):
              CAST("rtrim"("replace"("substr"("check_cx3c2r1chu"."estimated on-demand cost post recommended ri purchase monthly",2),'$')) AS decimal(18,2)) "estimated_on-demand_cost_post_recommended_ri_purchase_monthly"
     FROM "check_cx3c2r1chu"'''
         
-        checks=["Query_1e93e4c0b5","Query_51fc20e7i2","Query_davu99dc4c","Query_g31sq1e9u","Query_qch7dwoux1","Query_ti39halfu8","Query_z4aubrnsmz","Query_cx3c2r1chu","Query_hjlmh88um8","Query_summary"]
+        checks=["Query_1e93e4c0b5","Query_51fc20e7i2","Query_davu99dc4c","Query_g31sq1e9u","Query_qch7dwoux1","Query_ti39halfu8","Query_z4aubrnsmz","Query_hjlmh88um8","Query_summary"]
         logger.info("Cost Optimization Trusted Advisor Checks:" +str(checks))
         tagsString=''
         tags=[tag.strip() for tag in os.environ[("Tags")].strip().split(",")]

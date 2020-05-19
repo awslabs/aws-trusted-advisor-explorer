@@ -63,7 +63,7 @@ def get_trusted_advisor_checks(language, accountId, accountName,
     logger.info("Appending CheckIds for:"+ os.environ[("Category")])
     for x in response['checks']:                                                                   
         for category in list(os.environ[("Category")].split(",")):
-            if x['category'] == category:
+            if x['category'] == category and x['id'] in os.environ['SupportedChecks']:
                 TA_checks["checks"].append({"CheckId": x['id'], 
                                             "CheckName": x['name'],
                                             "Category":x['category'],
