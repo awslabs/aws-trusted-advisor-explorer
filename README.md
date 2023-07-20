@@ -1,3 +1,7 @@
+# Deprecation Notice
+
+This AWS Solution has been archived and is no longer maintained by AWS. To discover other solutions, please visit the [AWS Solutions Library](https://aws.amazon.com/solutions/).
+
 # AWS Trusted Advisor Explorer
 AWS Trusted Advisor Explorer is an AWS Solution that automatically provisions the infrastructure necessary to aggregate cost optimization recommendations and actively track cost optimization health across your organization over time. The solution creates a data lake that can be used to create dashboards to visually explore the data. The solution enriches the data with Resource Tags that further enhance the discovery and filtering capabilities. 
  
